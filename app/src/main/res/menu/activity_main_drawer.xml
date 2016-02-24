@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeItemId"
+        android:checkable="true"
+        android:icon="@mipmap/drawer_home"
+        android:title="@string/news_menu_item"/>
+
+    <group
+        android:checkableBehavior="single"
+        android:menuCategory="secondary">
+        <item
+            android:id="@+id/premiumLegueItemId"
+            android:checkable="true"
+            android:icon="@mipmap/drawer_league_1"
+            android:title="@string/primium_league_menu_item"/>
+        <item
+            android:id="@+id/expertsCupItemId"
+            android:checkable="true"
+            android:icon="@mipmap/drawer_league_3"
+            android:title="@string/experts_cup_menu_item"/>
+        <item
+            android:id="@+id/unionCupItemId"
+            android:checkable="true"
+            android:icon="@mipmap/drawer_league_4"
+            android:title="@string/union_cup_menu_item"/>
+        <item
+            android:id="@+id/liveCastItemId"
+            android:checkable="true"
+            android:icon="@drawable/television"
+            android:title="@string/live_sport_item_menu"/>
+    </group>
+    <group
+        android:checkableBehavior="single"
+        android:menuCategory="secondary">
+        <item
+            android:id="@+id/settingItemId"
+            android:checkable="true"
+            android:icon="@mipmap/drawer_setting"
+            android:title="إعدادات"/>
+        <item
+            android:id="@+id/contactUsItemId"
+            android:checkable="true"
+            android:icon="@mipmap/drawer_call"
+            android:title="تواصل معنا"/>
+        <item
+            android:id="@+id/aboutItmeId"
+            android:checked="true"
+            android:icon="@mipmap/drawer_info"
+            android:title="حول التطبيق"/>
+    </group>
+</menu>

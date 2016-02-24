@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:overScrollMode="always"
+    app:behavior_overlapTop="70dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.smartgateapps.saudifootball.saudi.activities.NewsDetailsActivity"
+    tools:showIn="@layout/activity_news_details">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/newsDetailCardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:cardElevation="8dp"
+            app:contentPadding="16dp">
+
+            <TextView
+                android:id="@+id/newDetailDetailTxtV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="8dp"
+                android:text="text text text text text text text text text text text "
+                android:textSize="18sp"
+                android:layout_marginTop="20dp"/>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/newsListRycV"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="bottom" />
+    </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>
+

@@ -1,0 +1,62 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.smartgateapps.saudifootball.saudi.activities.SendEmailFragment">
+
+    <TextView
+        android:id="@+id/titleTxtV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:text="العنوان:" />
+
+    <EditText
+        android:id="@+id/titleEdTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleTxtV"
+        android:layout_margin="5dp"
+        android:background="@drawable/edit_text_backfground"
+        android:padding="5dp" />
+
+    <TextView
+        android:id="@+id/bodyTxtV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleEdTxt"
+        android:layout_marginTop="15dp"
+        android:padding="10dp"
+        android:text="الرسالة:" />
+
+    <EditText
+        android:id="@+id/bodyEdTxt"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/sendBtn"
+        android:layout_below="@id/bodyTxtV"
+        android:layout_margin="5dp"
+        android:background="@drawable/edit_text_backfground"
+        android:gravity="top|start"
+        android:padding="5dp" />
+
+    <Button
+        android:id="@id/sendBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorAccent"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="@color/colorPrimaryDark"
+        android:text="ارسال" />
+
+</RelativeLayout>

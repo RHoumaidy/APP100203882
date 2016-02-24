@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/playerGoalerRelLyOut"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="3dp"
+    android:layoutDirection="rtl">
+
+    <TextView
+        android:id="@+id/playerGoalerGoalsTxtV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="99"
+        android:layout_weight="5"
+        android:gravity="center"
+        android:textColor="#000"
+        android:layout_alignParentRight="true"/>
+
+    <TextView
+        android:id="@+id/playerGoalerNameTxtV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="يوسوف ابراهيم ابواما"
+        android:textColor="#000"
+        android:layout_weight="25"
+        android:layout_marginRight="20dp"
+        android:paddingRight="15dp"
+        android:layout_gravity="center_vertical"/>
+
+    <TextView
+        android:id="@id/playerGoalerTeamTxtV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="12"
+        android:text="الاتحاد الاسكندراني"
+        android:layout_gravity="end"
+        android:layout_marginRight="10dp"
+        android:textColor="#000"
+        android:gravity="right"
+        android:layout_alignParentLeft="true"
+        />
+
+
+</LinearLayout>

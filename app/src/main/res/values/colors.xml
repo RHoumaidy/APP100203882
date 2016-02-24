@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary2">#6d6d6e</color>
+    <color name="colorPrimaryDark">#3F3F40</color>
+    <color name="colorPrimary">#585859</color>
+    <color name="colorAccent">#fac801</color>
+    <color name="listItemSelected">#cccccc</color>
+    <color name="black_overlay">#66000000</color>
+</resources>

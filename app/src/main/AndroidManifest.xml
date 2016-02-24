@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.smartgateapps.englifootball"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+    <permission
+        android:name="com.smartgateapps.englifootball.permission.C2D_MESSAGE"
+        android:protectionLevel="signature"/>
+
+    <uses-permission android:name="com.smartgateapps.englifootball.permission.C2D_MESSAGE"/>
+
+    <application
+        android:name="com.smartgateapps.englifootball.engli.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name="com.smartgateapps.englifootball.activities.MainActivity"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustNothing"/>
+
+        <activity
+            android:name="com.smartgateapps.englifootball.activities.NewsDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.smartgateapps.englifootball.activities.TeamDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <receiver android:name="com.smartgateapps.englifootball.services.GetAllDawriNewsReciever">
+            <intent-filter>
+                <action android:name="ACTION_ACTIVATION_ENGLI"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.smartgateapps.englifootball.services.UpdateMatch">
+            <intent-filter>
+                <action android:name="UPDATE_MATCH_ENGLI"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.smartgateapps.englifootball.services.BootCompletReciever">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.smartgateapps.englifootball.services.DoAt2AmService">
+            <intent-filter>
+                <action android:name="DO_AT_2_AM_ENGLI"/>
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.smartgateapps.englifootball.services.NotificationService" />
+        <service android:name="com.smartgateapps.englifootball.services.MatchNotification"/>
+        <service android:name="com.parse.PushService" />
+
+        <receiver
+            android:name="com.smartgateapps.englifootball.services.NotificationHandler"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.parse.push.intent.RECEIVE"/>
+                <action android:name="com.parse.push.intent.DELETE"/>
+                <action android:name="com.parse.push.intent.OPEN"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.parse.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+
+                <category android:name="com.smartgateapps.englifootball"/>
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.smartgateapps.englifootball.activities.Splash"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullscreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

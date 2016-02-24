@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary2"
+    android:padding="5dp"
+    android:layoutDirection="rtl"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/playerGoalerGoalsTxtV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="الأهداف"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:gravity="right"
+        android:layout_weight="10"
+        />
+
+    <TextView
+        android:id="@+id/playerGoalerNameTxtV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="اسم اللاعب"
+        android:textColor="#fff"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_weight="30"
+        android:paddingRight="10dp"/>
+
+    <TextView
+        android:id="@+id/playerGoalerTeamTxtV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="15"
+        android:text="الفريق"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="5dp"
+        android:layout_alignParentLeft="true"/>
+
+
+</LinearLayout>

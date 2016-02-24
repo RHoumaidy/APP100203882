@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="3dp"
+    android:id="@+id/placeItmeRelL"
+    tools:ignore="RtlHardcoded"
+    android:orientation="horizontal"
+    android:layoutDirection="rtl">
+
+    <TextView
+        android:id="@+id/posTxtV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingLeft="5dp"
+        android:layout_gravity="center_vertical"
+        android:textColor="#000"
+        android:paddingRight="5dp"
+        android:text="1"
+        android:textStyle="bold"
+        android:layout_weight="10"/>
+
+    <TextView
+        android:id="@+id/teamTxtV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:paddingLeft="5dp"
+        android:textColor="#000"
+        android:paddingRight="5dp"
+        android:text="النصري البورسعيدي"
+        android:textStyle="bold"
+        android:layout_weight="40"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="40"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/playTxtView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="25"
+            android:text="ل"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_alignParentRight="true"/>
+
+        <TextView
+            android:id="@+id/winTxtV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="ف"
+            android:layout_weight="25"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_toLeftOf="@id/playTxtView"/>
+        <TextView
+            android:id="@+id/drawTxtV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="ت"
+            android:layout_weight="25"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_toLeftOf="@id/winTxtV"/>
+        <TextView
+            android:id="@+id/loseTxtV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="خ"
+            android:textColor="#000"
+            android:layout_weight="25"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_toLeftOf="@id/drawTxtV"/>
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/pointTxtV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center_vertical"
+        android:text="27"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:layout_weight="15"/>
+
+</LinearLayout>

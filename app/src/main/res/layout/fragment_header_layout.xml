@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#8b8b8b">
+
+    <TextView
+        android:id="@+id/matchDateTxtV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:text="الأربعاء 9 ديسمبر 2015"
+        android:gravity="center"
+        android:padding="5dp"/>
+
+
+
+</LinearLayout>

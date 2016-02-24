@@ -1,0 +1,36 @@
+<LinearLayout
+    android:id="@+id/splashLinearLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3C3F41"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.smartgateapps.saudifootball.saudi.activities.Splash">
+
+    <ImageView
+        android:id="@+id/fullscreen_content"
+        android:layout_width="match_parent"
+        android:layout_height="256dp"
+        android:src="@drawable/logo"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3C3F41"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="@string/app_name"
+        android:textColor="@color/colorAccent"
+        android:textSize="24dp"/>
+
+    <com.greenfrvr.rubberloader.RubberLoaderView
+        android:id="@+id/loader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:loaderExtraColor="@color/colorPrimary"
+        app:loaderPrimeColor="@color/colorPrimary2"/>
+
+</LinearLayout>

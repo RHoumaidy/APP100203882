@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="@string/selected_leagues_pref_key"
+        android:summary="تنبيهات بالمستجدات"
+        android:title="التنبيهات">
+        <SwitchPreference
+            android:key="@string/premium_league_notificatin_pref_key"
+            android:summary="الحصول على تنبيهات الدوري الإنكليزي الممتاز"
+            android:title="@string/primium_league_menu_item" />
+
+        <SwitchPreference
+            android:key="@string/experts_cup_notification_pref_key"
+            android:summary="الحصول على تنبيهات كأس رابطة المحترفين الإنكليزية"
+            android:title="@string/experts_cup_menu_item" />
+
+        <SwitchPreference
+            android:key="@string/union_cup_notification_pref_key"
+            android:summary="الحصول على تنبيهات كأس الإتحاد الإنكليزي"
+            android:title="@string/union_cup_menu_item" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
