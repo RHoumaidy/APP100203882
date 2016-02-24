@@ -437,6 +437,8 @@ public class MatchFragment extends Fragment {
                 public void run() {
                     String htm = html;
                     Document doc = Jsoup.parse(html);
+                    List<Match> tmpList = new ArrayList<>();
+
                     try {
 
                         Element contentTable = doc.getElementById("contentTable");
@@ -465,8 +467,6 @@ public class MatchFragment extends Fragment {
                         Element tbody = contentTable.getElementsByTag("tbody").first();
 
                         Elements trs = tbody.getElementsByTag("tr");
-
-                        List<Match> tmpList = new ArrayList<>();
 
                         int hIdx = 0;
                         String date = "";
@@ -568,7 +568,7 @@ public class MatchFragment extends Fragment {
                                 match.setLeagueId(legue.getId().intValue());
                                 match.save();
 
-                                if (match.getDateTime() + 2 * 60 * 1000 >currTime ) {
+                                if (match.getDateTime() + 2 * 60 * 1000 > currTime) {
                                     if (match.getDateTime() <= currTime)
                                         match.setNotifyDateTime(currTime + 2 * 60 * 1000);
                                     match.registerMatchUpdateFirstTime();
@@ -583,6 +583,25 @@ public class MatchFragment extends Fragment {
 //                        Match m = new Match();
 //                        if (tmpList.size() == 0)
 //                            tmpList.add(m);
+
+                    } catch (Exception e) {
+                        Snackbar snackbar = Snackbar.make(relativeLayout, "نأسف حدث حطأ في جلب بعض البيانات!", Snackbar.LENGTH_INDEFINITE)
+                                .setAction("اعد المحاولة", new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        featchData();
+                                    }
+                                });
+                        snackbar.setActionTextColor(Color.RED);
+
+                        View sbView = snackbar.getView();
+                        TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+                        textView.setTextColor(Color.YELLOW);
+                        progressBar.fail();
+                        snackbar.show();
+
+                    } finally {
+
                         mathList.clear();
                         mathList.addAll(tmpList);
                         if (mathList.size() == 0) {
@@ -599,21 +618,6 @@ public class MatchFragment extends Fragment {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                    } catch (Exception e) {
-                        Snackbar snackbar = Snackbar.make(relativeLayout, "نأسف حدث حطأ في جلب بعض البيانات!", Snackbar.LENGTH_INDEFINITE)
-                                .setAction("اعد المحاولة", new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        featchData();
-                                    }
-                                });
-                        snackbar.setActionTextColor(Color.RED);
-
-                        View sbView = snackbar.getView();
-                        TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
-                        textView.setTextColor(Color.YELLOW);
-                        progressBar.fail();
-                        snackbar.show();
                     }
 
 

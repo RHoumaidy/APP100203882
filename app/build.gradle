@@ -8,8 +8,8 @@ android {
         applicationId "com.smartgateapps.englifootball"
         minSdkVersion 17
         targetSdkVersion 23
-        versionCode 2
-        versionName "1.0"
+        versionCode 15
+        versionName "1.5"
     }
     buildTypes {
         release {

@@ -348,10 +348,10 @@ public class NewsListFragment extends android.support.v4.app.Fragment {
                 public void run() {
                     String htm = html;
                     Document doc = Jsoup.parse(html);
+                    List<News> allNewsTmp = new ArrayList<>();
 
                     try {
                         Element newsList = doc.getElementsByClass("newsList").first();
-                        List<News> allNewsTmp = new ArrayList<>();
                         Element ul_news_list = newsList.getElementsByTag("ul").first();
 
                         Elements lis = ul_news_list.getElementsByTag("li");
@@ -396,18 +396,7 @@ public class NewsListFragment extends android.support.v4.app.Fragment {
                             //adapter.notifyDataSetChanged();
                         }
 
-                        allNews.addAll(allNewsTmp);
-                        adapter.notifyDataSetChanged();
 
-                        try {
-                            if (progressBarLL.getVisibility() == View.VISIBLE) {
-                                progressBarLL.setVisibility(View.GONE);
-                                refreshLayout.setVisibility(View.VISIBLE);
-                            }
-                            refreshLayout.setRefreshing(false);
-                        } catch (Exception e) {
-
-                        }
                     } catch (Exception e) {
                         String st = e.getMessage();
                         Snackbar snackbar = Snackbar.make(relativeLayout, "نأسف حدث حطأ في جلب بعض البيانات!", Snackbar.LENGTH_INDEFINITE)
@@ -425,6 +414,20 @@ public class NewsListFragment extends android.support.v4.app.Fragment {
                         progressBar.fail();
                         snackbar.show();
 
+                    }finally {
+
+                        allNews.addAll(allNewsTmp);
+                        adapter.notifyDataSetChanged();
+
+                        try {
+                            if (progressBarLL.getVisibility() == View.VISIBLE) {
+                                progressBarLL.setVisibility(View.GONE);
+                                refreshLayout.setVisibility(View.VISIBLE);
+                            }
+                            refreshLayout.setRefreshing(false);
+                        } catch (Exception e) {
+
+                        }
                     }
 
                 }

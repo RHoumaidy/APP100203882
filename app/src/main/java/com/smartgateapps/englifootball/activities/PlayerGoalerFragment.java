@@ -255,12 +255,12 @@ public class PlayerGoalerFragment extends Fragment {
                 public void run() {
                     String htm = html;
                     Document doc = Jsoup.parse(html);
+                    List<Player> tmpList = new ArrayList<Player>();
 
                     try {
                         Element scorersList = doc.getElementById("scorersList");
                         Element tbody = scorersList.getElementsByTag("tbody").first();
 
-                        List<Player> tmpList = new ArrayList<Player>();
 
                         for (Element tr : tbody.getElementsByTag("tr")) {
                             Player player = new Player();
@@ -271,10 +271,20 @@ public class PlayerGoalerFragment extends Fragment {
                             Element pA = playerName.getElementsByTag("a").first();
                             Element tA = teamName.getElementsByTag("a").first();
 
-                            int goals = Integer.parseInt(goaldTd.text());
-                            String pName = pA.text();
-                            String tName = tA.text();
-                            String plId = pA.attr("href");
+                            int goals = 0;
+                            if (goaldTd != null)
+                                goals = Integer.parseInt(goaldTd.text());
+                            String pName = "";
+                            if (pA != null)
+                                pName = pA.text();
+                            else
+                                pName = playerName.text();
+                            String tName = "";
+                            if (tA != null)
+                                tName = tA.text();
+                            String plId = "";
+                            if (pA != null)
+                                plId = pA.attr("href");
 
                             if (goals == 0)
                                 break;
@@ -288,14 +298,7 @@ public class PlayerGoalerFragment extends Fragment {
 
                         }
 
-                        playerList.clear();
-                        playerList.addAll(tmpList);
-                        adapter.notifyDataSetChanged();
-                        try {
-                            setListShown(true);
-                        }catch (Exception e){
-                            e.printStackTrace();
-                        }
+
                     }catch (Exception e){
                         Snackbar snackbar = Snackbar.make(relativeLayout, "نأسف حدث حطأ في جلب بعض البيانات!", Snackbar.LENGTH_INDEFINITE)
                                 .setAction("اعد المحاولة", new View.OnClickListener() {
@@ -311,6 +314,16 @@ public class PlayerGoalerFragment extends Fragment {
                         textView.setTextColor(Color.YELLOW);
                         progressBar.fail();
                         snackbar.show();
+                    }finally {
+
+                        playerList.clear();
+                        playerList.addAll(tmpList);
+                        adapter.notifyDataSetChanged();
+                        try {
+                            setListShown(true);
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
                     }
 
 

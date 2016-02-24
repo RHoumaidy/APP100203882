@@ -252,13 +252,12 @@ public class PlacedListFragment extends Fragment {
                 public void run() {
                     String htm = html;
                     Document doc = Jsoup.parse(html);
+                    List<Team> tmpList = new ArrayList<>();
 
                     try {
                         Element ranksTable = doc.getElementById("ranksTable");
                         Element tbody = ranksTable.getElementsByTag("tbody").first();
                         Elements trs = tbody.getElementsByTag("tr");
-                        List<Team> tmpList = new ArrayList<>();
-
 
                         for (int i = 0; i < trs.size(); ++i) {
                             Element tr = trs.get(i);
@@ -301,15 +300,7 @@ public class PlacedListFragment extends Fragment {
 
                         }
 
-                        teams.clear();
-                        teams.addAll(tmpList);
 
-                        adapter.notifyDataSetChanged();
-                        try {
-                            setListShown(true);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
                     } catch (Exception e) {
                         Snackbar snackbar = Snackbar.make(relativeLayout, "نأسف حدث حطأ في جلب بعض البيانات!", Snackbar.LENGTH_INDEFINITE)
                                 .setAction("اعد المحاولة", new View.OnClickListener() {
@@ -326,7 +317,15 @@ public class PlacedListFragment extends Fragment {
                         progressBar.fail();
                         snackbar.show();
                     } finally {
+                        teams.clear();
+                        teams.addAll(tmpList);
 
+                        adapter.notifyDataSetChanged();
+                        try {
+                            setListShown(true);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
 
                 }

@@ -271,6 +271,7 @@ public class TeamListFragment extends Fragment {
                 public void run() {
                     String htm = html;
                     Document doc = Jsoup.parse(html);
+                    List<Team> tmpTeams = new ArrayList<Team>();
 
                     try {
                         Element content = doc.getElementById("content");
@@ -278,7 +279,6 @@ public class TeamListFragment extends Fragment {
                         Element table = div_mb20.getElementsByTag("table").first();
                         Element table_body = table.getElementsByTag("tbody").first();
 
-                        List<Team> tmpTeams = new ArrayList<Team>();
                         for (Element tr : table_body.getElementsByTag("tr")) {
 
                             Element tdl = tr.getElementsByTag("td").get(0);
@@ -326,10 +326,7 @@ public class TeamListFragment extends Fragment {
                             tmpTeams.add(team1);
                             tmpTeams.add(team2);
                         }
-                        allTeams.clear();
-                        allTeams.addAll(tmpTeams);
-                        adapter.notifyDataSetChanged();
-                        setListShown(true);
+
 
                     } catch (Exception e) {
                         Snackbar snackbar = Snackbar.make(recyclerView, "نأسف حدث حطأ في جلب بعض البيانات", Snackbar.LENGTH_INDEFINITE)
@@ -347,6 +344,11 @@ public class TeamListFragment extends Fragment {
                         progressBar.fail();
                         snackbar.show();
                     } finally {
+
+                        allTeams.clear();
+                        allTeams.addAll(tmpTeams);
+                        adapter.notifyDataSetChanged();
+                        setListShown(true);
                     }
 
                 }

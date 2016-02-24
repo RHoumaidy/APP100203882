@@ -18,6 +18,7 @@ import com.smartgateapps.englifootball.engli.MyApplication;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +51,7 @@ public class NewsListFragmentBackground {
         webView1.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
+                number++;
                 webView1.loadUrl(
                         "javascript:window.HtmlViewer.showHTML('<html>'+document.getElementsByTagName('html')[0].innerHTML+'</html>'," +
                                 0+");");
@@ -85,6 +87,7 @@ public class NewsListFragmentBackground {
         webView2.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
+                number++;
                 webView2.loadUrl(
                         "javascript:window.HtmlViewer.showHTML('<html>'+document.getElementsByTagName('html')[0].innerHTML+'</html>'," +
                                 1+");");
@@ -263,10 +266,11 @@ public class NewsListFragmentBackground {
             int leaguId = Integer.valueOf(leagueIdS);
             try {
                 Element newsList = doc.getElementsByClass("newsList").first();
-                List<News> allNewsTmp = new ArrayList<>();
                 Element ul_news_list = newsList.getElementsByTag("ul").first();
 
-                for (Element li : ul_news_list.getElementsByTag("li")) {
+                Elements lis = ul_news_list.getElementsByTag("li");
+                for (int i = lis.size() - 1; i >= 0; i--) {
+                    Element li = lis.get(i);
 
                     Element a = li.getElementsByTag("a").first();
                     Element img = a.getElementsByTag("img").first();
@@ -286,15 +290,16 @@ public class NewsListFragmentBackground {
                     news.setSubTitle(subTitle);
                     news.setTitle(title);
                     news.save();
+                    LeaguNews leaguNews = new LeaguNews();
+                    leaguNews.setLeaguId(leaguId);
+                    leaguNews.setNewsId(news.getId());
+                    leaguNews.setPageIdx(pageIdx);
+                    leaguNews.setIsSeen(true);
+                    leaguNews.save();
 
-                    LeaguNews leaguNews1 = new LeaguNews();
-                    leaguNews1.setLeaguId(leaguId);
-                    leaguNews1.setNewsId(news.getId());
-                    leaguNews1.setPageIdx(pageIdx);
-                    leaguNews1.setIsSeen(false);
-                    leaguNews1.save();
                     //adapter.notifyDataSetChanged();
                 }
+
 
             } catch (Exception e) {
                 String st = e.getMessage();
