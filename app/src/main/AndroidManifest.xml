@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.smartgateapps.englifootball"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest
+    package="com.smartgateapps.englifootball"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -32,42 +33,35 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustNothing"/>
-
         <activity
             android:name="com.smartgateapps.englifootball.activities.NewsDetailsActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name="com.smartgateapps.englifootball.activities.TeamDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name="com.smartgateapps.englifootball.activities.Splash"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullscreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
 
-        <receiver android:name="com.smartgateapps.englifootball.services.GetAllDawriNewsReciever">
-            <intent-filter>
-                <action android:name="ACTION_ACTIVATION_ENGLI"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </receiver>
-        <receiver android:name="com.smartgateapps.englifootball.services.UpdateMatch">
-            <intent-filter>
-                <action android:name="UPDATE_MATCH_ENGLI"/>
-            </intent-filter>
-        </receiver>
-        <receiver android:name="com.smartgateapps.englifootball.services.BootCompletReciever">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-            </intent-filter>
-        </receiver>
-        <receiver android:name="com.smartgateapps.englifootball.services.DoAt2AmService">
-            <intent-filter>
-                <action android:name="DO_AT_2_AM_ENGLI"/>
-            </intent-filter>
-        </receiver>
+        </activity>
 
-        <service android:name="com.smartgateapps.englifootball.services.NotificationService" />
-        <service android:name="com.smartgateapps.englifootball.services.MatchNotification"/>
-        <service android:name="com.parse.PushService" />
+        <service android:name=".services.NotificationService"/>
+        <service android:name=".services.MatchNotification"/>
+        <service android:name=".services.MatchGoalNotification"/>
+        <service android:name="com.parse.PushService"/>
 
+        <receiver android:name=".services.GetAllDawriNewsReciever"/>
+        <receiver android:name=".services.UpdateMatch"/>
+        <receiver android:name=".services.BootCompletReciever"/>
+        <receiver android:name=".services.DoAt2AmService"/>
         <receiver
             android:name="com.smartgateapps.englifootball.services.NotificationHandler"
             android:exported="false">
@@ -88,17 +82,7 @@
             </intent-filter>
         </receiver>
 
-        <activity
-            android:name="com.smartgateapps.englifootball.activities.Splash"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait"
-            android:theme="@style/FullscreenTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>

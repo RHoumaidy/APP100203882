@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteException;
 import android.util.Log;
 
 import com.smartgateapps.englifootball.engli.MyApplication;
+import com.smartgateapps.englifootball.services.UpdateMatch;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -256,7 +257,7 @@ public class Match {
 
     public void registerMatchUpdateDate(long dateTime) {
 
-        Intent updateMatchIntent = new Intent(MyApplication.UPATE_MATCH);
+        Intent updateMatchIntent = new Intent(MyApplication.APP_CTX, UpdateMatch.class);
         updateMatchIntent.putExtra("MATCH_ID", this.getId());
         PendingIntent pendingIntent = PendingIntent.getBroadcast(MyApplication.APP_CTX, this.getId().intValue(), updateMatchIntent, PendingIntent.FLAG_NO_CREATE);
         if (pendingIntent != null)
@@ -268,7 +269,7 @@ public class Match {
     }
 
     public void registerMatchUpdateFirstTime() {
-        Intent updateMatchIntent = new Intent(MyApplication.UPATE_MATCH);
+        Intent updateMatchIntent = new Intent(MyApplication.APP_CTX,UpdateMatch.class);
         updateMatchIntent.putExtra("MATCH_ID", this.getId());
 
         PendingIntent pendingIntent = PendingIntent.getBroadcast(MyApplication.APP_CTX, this.getId().intValue(), updateMatchIntent, PendingIntent.FLAG_NO_CREATE);

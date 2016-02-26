@@ -30,7 +30,7 @@ public class BootCompletReciever extends WakefulBroadcastReceiver {
             m.registerMatchUpdateFirstTime();
         }
 
-        Intent intentActivationUpateNewsService = new Intent(MyApplication.ACTION_ACTIVATION);
+        Intent intentActivationUpateNewsService = new Intent(MyApplication.APP_CTX,GetAllDawriNewsReciever.class);
         PendingIntent pendingIntent =
                 PendingIntent.getBroadcast(MyApplication.APP_CTX, 55, intentActivationUpateNewsService, PendingIntent.FLAG_UPDATE_CURRENT);
 

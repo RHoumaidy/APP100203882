@@ -32,7 +32,7 @@ public class GetAllDawriNewsReciever extends WakefulBroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         this.intent = intent;
 //        Toast.makeText(context,"started News",Toast.LENGTH_LONG).show();
-        Intent intentActivationUpateNewsService = new Intent(MyApplication.ACTION_ACTIVATION);
+        Intent intentActivationUpateNewsService = new Intent(MyApplication.APP_CTX,GetAllDawriNewsReciever.class);
         PendingIntent pendingIntent =
                 PendingIntent.getBroadcast(MyApplication.APP_CTX, 55, intentActivationUpateNewsService, PendingIntent.FLAG_NO_CREATE);
         if (pendingIntent != null)
