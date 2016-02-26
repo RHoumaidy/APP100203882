@@ -343,7 +343,7 @@ public class MainActivity extends AppCompatActivity
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            MyApplication.openPlayStor("http://makanisyria.com/assets/downloads/LiveSport-1.0.apk   ");
+                            MyApplication.openPlayStor(MyApplication.LIVE_CAST_APP_PACKAGE_NAME);
                         }
                     }).setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                 @Override
