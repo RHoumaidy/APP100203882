@@ -294,7 +294,7 @@ public class NewsListFragmentBackground {
                     leaguNews.setLeaguId(leaguId);
                     leaguNews.setNewsId(news.getId());
                     leaguNews.setPageIdx(pageIdx);
-                    leaguNews.setIsSeen(true);
+                    leaguNews.setIsSeen(false);
                     leaguNews.save();
 
                     //adapter.notifyDataSetChanged();

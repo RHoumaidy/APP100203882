@@ -54,11 +54,6 @@ public class GetAllDawriNewsReciever extends WakefulBroadcastReceiver {
             newsListFragment1.featchData();
         } else
             NewsListFragmentBackground.number = 0;
-//        newsListFragment2.featchData();
-//        newsListFragment3.featchData();
-//        newsListFragment4.featchData();
-//        newsListFragment5.featchData();
-
 
         Set<String> selectedLeagues = new HashSet<>();
         if (MyApplication.pref.getBoolean(MyApplication.APP_CTX.getString(R.string.premium_league_notificatin_pref_key), false))
